@@ -1,0 +1,134 @@
+<html>
+  <body>
+    <h2> GPA Calculator </h2>
+    <script type = "text/javascript">
+    /********************************************************************************
+     * Program Name:          GPA Calculator
+     * Program Description:   This program will ask for your name, number of classes,
+     *                        grade, credits and weighting. It will then tell you 
+     *                        your overall GPA both unweighted and weighted
+     * Program Author:        Xavier Louit
+     * Date Created:          07/11/2019
+     * Change#        Change Date      Programmer Name        Description
+     * -------        ------------     -------------------    -------------------
+     ********************************************************************************/
+  BR = "</br />"
+  Name = prompt("Please enter your name.")
+   document.write("Name: " + Name + BR)
+
+  numberOfClasses = parseInt(prompt("How many classes do you wish to calculate?"));
+  var scores = new Array(numberOfClasses);
+
+  var sum = 0;
+  var weightedSum = 0;
+
+  for (var i = 0; i < numberOfClasses; i++) {
+
+  className = prompt("Please enter the course name");
+  className = className.toUpperCase();
+
+  gradePercentage = parseFloat(prompt("Please enter your grade percentage."));
+
+  weight = prompt("Please enter the course weight. (Regular, Honors or AP)");
+  weight = weight.toUpperCase();
+
+  BR = "</br />"
+
+
+  if (gradePercentage >= 97)
+    gradeEquals = "A+";
+  else if (gradePercentage >= 93 && gradePercentage < 97)
+    gradeEquals = "A";
+  else if (gradePercentage >= 90 && gradePercentage < 93)
+    gradeEquals = "A-";
+  else if (gradePercentage >= 87 && gradePercentage < 90)
+    gradeEquals = "B+";
+  else if (gradePercentage >= 83 && gradePercentage < 87)
+    gradeEquals = "B";
+  else if (gradePercentage >= 80 && gradePercentage < 83)
+    gradeEquals = "B-";
+  else if (gradePercentage >= 77 && gradePercentage < 80)
+    gradeEquals = "C+";
+  else if (gradePercentage >= 73 && gradePercentage < 77)
+    gradeEquals = "C";
+  else if (gradePercentage >= 70 && gradePercentage < 73)
+    gradeEquals = "C-";
+  else if (gradePercentage >= 67 && gradePercentage < 70)
+    gradeEquals = "D+";
+  else if (gradePercentage >= 63 && gradePercentage < 67)
+    gradeEquals = "D";
+  else if (gradePercentage >= 60 && gradePercentage < 63)
+    gradeEquals = "D-";
+  else if (gradePercentage >= 0 && gradePercentage < 60)
+    gradeEquals = "F";
+
+
+
+  if (gradeEquals == "A+")
+    gradeValue= 4.33; 
+  else if (gradeEquals == "A")
+    gradeValue= 4.00;
+  else if (gradeEquals == "A-")
+    gradeValue= 3.67;
+  else if (gradeEquals == "B+")
+    gradeValue = 3.33;
+  else if (gradeEquals == "B")
+    gradeValue = 3.00;
+  else if (gradeEquals == "B-")
+    gradeValue = 2.67;
+  else if (gradeEquals == "C+")
+    gradeValue = 2.33;
+  else if (gradeEquals == "C")
+    gradeValue = 2.00;
+  else if (gradeEquals == "D+")
+  gradeValue = 1.33;
+  else if (gradeEquals == "D")
+    gradeValue = 1.00;
+  else if (gradeEquals == "D-")
+    gradeValue = .67;
+  else if (gradeEquals == "F")
+    gradeValue = 0;
+  else
+    System.out.println ("Invalid Grade");
+
+  scores[i] = gradeValue
+  sum += scores[i];
+  weightedSum += scores[i];
+
+  if(weight == "REGULAR") {
+  weightedSum = weightedSum + 0
+  }  
+  if(weight == "HONORS") {
+  weightedSum = weightedSum + .6666
+  } 
+  if(weight == "AP") {
+  weightedSum = weightedSum + .6666
+  } 
+
+   document.write("Course Name: " + className + BR);
+   document.write("Grade: " + gradeEquals + ":  ");
+   document.write(gradePercentage + BR);
+   document.write("Course Difficulty: " + weight + BR + BR)
+
+
+}
+  unweightedGPA = sum / numberOfClasses
+  weightedGPA = weightedSum / numberOfClasses
+   document.write("Unweighted GPA: " + unweightedGPA.toFixed(4) + BR);
+   document.write("Weighted GPA: " + weightedGPA.toFixed(4));
+   if (weightedGPA >= 4.2) {
+   document.write(BR + BR + "Outstanding! Keep it up " + Name + "!" + BR)
+   }
+   if (weightedGPA >= 4.0 && weightedGPA < 4.2) {
+   document.write(BR + BR + "Great work " + Name + "!" + BR)
+   }
+   if (weightedGPA >= 3.85 && weightedGPA < 4.0) {
+   document.write(BR + BR + "Nice job " + Name + "!" + BR)
+   }
+   if (weightedGPA < 3.85) {
+   document.write(BR + BR + "Nice work " + Name + "!" + BR)
+   }
+
+     </script>
+   </body>
+</html>
